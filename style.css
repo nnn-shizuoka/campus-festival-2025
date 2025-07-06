@@ -1,0 +1,14 @@
+/* Noto Sans JP */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 和風フォント */
+/* h2  {
+  font-family: "Yuji Mai", serif;
+  font-weight: 400;
+  font-style: normal;
+} */
