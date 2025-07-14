@@ -12,3 +12,30 @@ body {
   font-weight: 400;
   font-style: normal;
 } */
+body{
+  background-image: url("assets/otsukimi.png");
+
+      /* 背景画像を画面いっぱいに表示 */
+      background-size: cover;
+
+      /* 背景画像を繰り返さない */
+      background-repeat: no-repeat;
+
+      /* 背景画像を中央に配置 */
+      background-position: center;
+
+      /* 背景画像を固定（スクロール時に動かさない） */
+      background-attachment: fixed;
+
+      /* テキストの色 */
+      color: white;
+      
+}
+
+iframe {
+  border: 0;
+}
+
+.news-frame {
+  width: 500px;
+}
