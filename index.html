@@ -17,118 +17,204 @@
 
 <body>
   <header>
-    <a href="#information">概要</a>
-    <a href="#news">ニュース</a>
-    <a href="#schedule">スケジュール</a>
-    <a href="#foods">飲食物の内容</a>
-    <a href="#goods">販売物の内容</a>
-    <a href="#mentor-ta">メンター・TA紹介</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="#information">概要</a></li>
+        <li><a href="#news">ニュース</a></li>
+        <li><a href="#schedule">スケジュール</a></li>
+        <li><a href="#foods">飲食物の内容</a></li>
+        <li><a href="#goods">販売物の内容</a></li>
+        <li><a href="#mentor-ta">メンター・TA紹介</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main style="background: #0008">
-    <div>
-      <!-- でかい画像の中に -->
+  <main>
+    <div class="title">
       <h1>静岡キャンフェス2025</h1>
-      <div id="counter"></div>
+      <div id="counter" class="counter"></div>
     </div>
 
-    <h2 id="information">概要</h2>
+    <section>
+      <h2 id="information">概要</h2>
 
-    <p>日時: 2025年9月20日</p>
-    <p>場所: N高グループ静岡キャンパス 〒420-0851 静岡県静岡市葵区黒金町3 シャンソンビル 1階</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.425020893776!2d138.38212470480448!3d34.97101730000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a496d853134a3%3A0x972ebd066450b05f!2zTumrmOetieWtpuagoSDpnZnlsqHjgq3jg6Pjg7Pjg5Hjgrk!5e0!3m2!1sja!2sjp!4v1751248202614!5m2!1sja!2sjp" width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p>日時: 2025年9月20日</p>
+      <p>場所: N高グループ静岡キャンパス 〒420-0851 静岡県静岡市葵区黒金町3 シャンソンビル 1階</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.425020893776!2d138.38212470480448!3d34.97101730000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a496d853134a3%3A0x972ebd066450b05f!2zTumrmOetieWtpuagoSDpnZnlsqHjgq3jg6Pjg7Pjg5Hjgrk!5e0!3m2!1sja!2sjp!4v1751248202614!5m2!1sja!2sjp" width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
-    <h2 id="news">ニュース</h2>
+    <section>
+      <h2 id="news">ニュース</h2>
 
-    <iframe class="news-frame" src="https://docs.google.com/document/d/e/2PACX-1vSDPROq28YCI4RE9EGwJof0HzGpMZfOLhzkYgo6eTM_FvmQPSsKQwhcxLw7eL0r7L5ZqqCJDXp85WRR/pub?embedded=true"></iframe>
+      <iframe class="news-frame" src="https://docs.google.com/document/d/e/2PACX-1vSDPROq28YCI4RE9EGwJof0HzGpMZfOLhzkYgo6eTM_FvmQPSsKQwhcxLw7eL0r7L5ZqqCJDXp85WRR/pub?embedded=true"></iframe>
+    </section>
 
-    <h2 id="schedule">スケジュール</h2>
+    <section>
+      <h2 id="schedule">スケジュール</h2>
 
-    <details>
-      <summary>入場</summary>
-    </details>
+      <div class="schedule-list">
+        <ol>
+          <li>
+            <div class="time-item">10:30 - 11:00 開場</div>
+          </li>
+        </ol>
 
-    <h3>第一部</h3>
+        <h3>第一部</h3>
 
-    <div>
-      <details>
-        <summary>10:30 第一部</summary>
-      </details>
-    </div>
+        <ol>
+          <li>
+            <div class="time-item"><time>11:00</time> - <time>11:05</time> 開会式</div>
+          </li>
+          <li>
+            <div class="time-item"><time>11:05</time> - <time>11:25</time> NSRロゴクイズ</div>
+            <div class="description"><small>N・S・R高等学校にちなんで、「N」「S」「R」が入っているロゴに関してクイズを出します。</small></div>
+          </li>
+          <li>
+            <div class="time-item"><time>11:30</time> - <time>11:50</time> イントロドン</div>
+          </li>
+          <li>
+            <div class="time-item"><time>11:55</time> - <time>12:05</time> あるある動画</div>
+            <div class="description"><small>超面白いあるある動画を視聴しよう！</small></div>
+          </li>
+          <li>
+            <div class="time-item"><time>12:10</time> - <time>12:30</time> 利き飲み物選手権</div>
+          </li>
+        </ol>
 
-    <h2 id="foods">飲食物の内容</h2>
+        <h3>第二部</h3>
 
-    <h2 id="goods">販売物の内容</h2>
+        <ol>
+          <li>
+            <div class="time-item"><time>13:10</time> - <time>13:25</time> ゲーム大会決勝</div>
+          </li>
+          <li>
+            <div class="time-item"><time>13:30</time> - <time>13:50</time> イントロドン</div>
+          </li>
+          <li>
+            <div class="time-item"><time>13:55</time> - <time>14:10</time> なぞなぞ</div>
+          </li>
+          <li>
+            <div class="time-item"><time>14:15</time> - <time>14:30</time> ロゴクイズ</div>
+          </li>
+        </ol>
 
-    <h2 id="mentor-ta">メンター・TA紹介</h2>
+        <h3>第三部</h3>
 
-    <div class="mentor-ta-list">
-      <div class="mentor-ta">
-        <img class="image" src="" alt="根上佳三">
-        <div class="name">根上佳三</div>
-        <ul>
-          <li>趣味:マニュアル車のドライブ</li>
-          <li>好きな食べ物:味噌ラーメン</li>
-          <li>尊敬する人物 : 稲葉浩志(B'z)</li>
-        </ul>
+        <ol>
+          <li>
+            <div class="time-item"><time>14:40</time> - <time>14:55</time> 利き飲み物選手権</div>
+          </li>
+          <li>
+            <div class="time-item"><time>15:00</time> - <time>15:10</time> Vlog放送</div>
+          </li>
+          <li>
+            <div class="time-item"><time>15:15</time> - <time>15:35</time> なぞなぞ</div>
+          </li>
+          <li>
+            <div class="time-item"><time>15:50</time> - <time>16:00</time> 閉会式</div>
+          </li>
+        </ol>
+
+        <ol>
+          <li>
+            <div class="time-item"><time>16:00</time> 閉場</div>
+          </li>
+        </ol>
       </div>
+    </section>
+
+    <section>
+      <h2 id="foods">飲食物の内容</h2>
+
+      <ul>
+        <li>フランクフルト</li>
+        <li>ポテト</li>
+        <li>ワッフル</li>
+        <li>各種飲み物</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="goods">販売物の内容</h2>
+
+      <ul>
+        <li>メンターブロマイド</li>
+        <li>岡本TAのステッカー&チェキ風ブロマイドセット</li>
+        <li>ポストカード</li>
+        <li>編み物</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="mentor-ta">メンター・TA紹介</h2>
 
       <div class="mentor-ta-list">
         <div class="mentor-ta">
-          <img class="image" src="" alt="福本奈穂">
-          <div class="name">福本奈穂</div>
+          <img class="image" src="https://placehold.jp/200x200.png" alt="根上佳三">
+          <div class="name">根上佳三</div>
           <ul>
-            <li>趣味 : アニメ鑑賞</li>
-            <li>好きな食べ物 : 白米</li>
-            <li>座右の銘 : やればなんとかなる</li>
+            <li>趣味:マニュアル車のドライブ</li>
+            <li>好きな食べ物:味噌ラーメン</li>
+            <li>尊敬する人物 : 稲葉浩志(B'z)</li>
           </ul>
         </div>
 
+        <div class="mentor-ta-list">
+          <div class="mentor-ta">
+            <img class="image" src="https://placehold.jp/200x200.png" alt="福本奈穂">
+            <div class="name">福本奈穂</div>
+            <ul>
+              <li>趣味 : アニメ鑑賞</li>
+              <li>好きな食べ物 : 白米</li>
+              <li>座右の銘 : やればなんとかなる</li>
+            </ul>
+          </div>
 
-        <div class="mentor-ta">
-          <img class="image" src="" alt="両角帆奈美">
-          <div class="name">両角帆奈美</div>
-          <ul>
-            <li>趣味 : 一人カラオケ・漫画</li>
-            <li>好きな食べ物 : とうもろこし</li>
-            <li>座右の銘 : 善く生きる</li>
-          </ul>
-        </div>
+          <div class="mentor-ta">
+            <img class="image" src="https://placehold.jp/200x200.png" alt="両角帆奈美">
+            <div class="name">両角帆奈美</div>
+            <ul>
+              <li>趣味 : 一人カラオケ・漫画</li>
+              <li>好きな食べ物 : とうもろこし</li>
+              <li>座右の銘 : 善く生きる</li>
+            </ul>
+          </div>
 
-        <div class="mentor-ta">
-          <img class="image" src="" alt="岡本航明">
-          <div class="name">岡本航明</div>
-          <ul>
-            <li>趣味:ギター</li>
-            <li>好きな事:Mr.Children・ジブリ・SixTONES・音楽・清水エスパルス</li>
+          <div class="mentor-ta">
+            <img class="image" src="https://placehold.jp/200x200.png" alt="岡本航明">
+            <div class="name">岡本航明</div>
+            <ul>
+              <li>趣味:ギター</li>
+              <li>好きな事:Mr.Children・ジブリ・SixTONES・音楽・清水エスパルス</li>
 
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <div class="mentor-ta">
-          <img class="image" src="" alt="遠藤克哉">
-          <div class="name">遠藤克哉</div>
-          <ul>
-            <li>趣味:ドライブ・昼寝</li>
-            <li>好きな事:音楽・ゲーム</li>
-          </ul>
-        </div>
+          <div class="mentor-ta">
+            <img class="image" src="https://placehold.jp/200x200.png" alt="遠藤克哉">
+            <div class="name">遠藤克哉</div>
+            <ul>
+              <li>趣味:ドライブ・昼寝</li>
+              <li>好きな事:音楽・ゲーム</li>
+            </ul>
+          </div>
 
-        <div class="mentor-ta">
-          <img class="image" src="" alt="梅井康希">
-          <div class="name">梅井康希</div>
-          <ul>
-            <li>好きな事:ゲーム</li>
-            <li>好きな食べ物:ラーメン</li>
-            <li>好きな事:漫画・音楽</li>
-          </ul>
+          <div class="mentor-ta">
+            <img class="image" src="https://placehold.jp/200x200.png" alt="梅井康希">
+            <div class="name">梅井康希</div>
+            <ul>
+              <li>好きな事:ゲーム</li>
+              <li>好きな食べ物:ラーメン</li>
+              <li>好きな事:漫画・音楽</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer>
-    <div>お問い合わせ</div>
+    <div><a href="https://docs.google.com/forms/d/1hxeP5mQonIIdpJGBm5ros6NectPeoZ4nALNQHigStas/edit">お問い合わせ</a></div>
     <div>© 2025 N高グループ静岡キャンパス</div>
   </footer>
 </body>
