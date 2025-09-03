@@ -1,50 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 /* Noto Sans JP */
 body {
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 18px;
 }
 
 /* 和風フォント */
-/* h2  {
-  font-family: "Yuji Mai", serif;
+h2 {
+  font-family: "Yuji Syuku", serif;
   font-weight: 400;
   font-style: normal;
-} */
+  color: #F99417;
+}
 
 body {
   background-color: #4D4C7D;
-  /* background-image: url("assets/otsukimi.png"); */
-
-  /* 背景画像を画面いっぱいに表示 */
-  /* background-size: cover; */
-
-  /* 背景画像を繰り返さない */
-  /* background-repeat: no-repeat; */
-
-  /* 背景画像を中央に配置 */
-  /* background-position: center; */
-
-  /* 背景画像を固定（スクロール時に動かさない） */
-  /* background-attachment: fixed; */
-
-  /* テキストの色 */
   color: #F5F5F5;
-
   margin: 0;
 }
 
+main {
+  margin: 0 auto;
+}
+
 header {
-  position: fixed;
-  background-color: #363062ee;
+  position: sticky;
+  background-color: #363062aa;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 100;
-  padding: 12px 18px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.menu-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
 }
 
 .menu {
@@ -52,12 +62,88 @@ header {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  height: 55px;
+  flex: 1;
+}
+
+.menu > li:not(:last-of-type) {
+  border-right: 1px solid #F5F5F5;
+  padding-right: 12px;
+}
+
+[name="expand-menu"] {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  [name="expand-menu"] {
+    display: block;
+    appearance: none;
+    margin: 0;
+    background-color: #363062aa;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 4px 5px #363062aa;
+    position: relative;
+  }
+
+  /* タップ領域を拡大 */
+  [name="expand-menu"]::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  [name="expand-menu"]::after {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 10.4px 6px 0 6px;
+    border-color: #F5F5F5 transparent transparent transparent;
+    translate: 0 1px;
+  }
+
+  [name="expand-menu"]:checked::after {
+    border-width: 0 6px 10.4px 6px;
+    border-color: transparent transparent #F5F5F5 transparent;
+    translate: 0 -1px;
+  }
+
+  .menu:has(+ [name="expand-menu"]:checked) {
+    flex-direction: column;
+    align-items: start;
+    height: auto;
+    padding: 18px 0;
+  }
+
+  .menu:has(+ [name="expand-menu"]:checked) > li {
+    border: none;
+    padding: 0;
+  }
+}
+
+.menu a {
+  color: #F99417;
 }
 
 a {
-  color: #F99417;
   text-decoration: none;
 }
 
@@ -66,7 +152,14 @@ a:hover {
 }
 
 section {
-  margin: 20px;
+  padding-top: 55px;
+  margin: 0 80px;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 20px;
+  }
 }
 
 .title {
@@ -74,14 +167,14 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: calc(100dvh - 55px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #F5F5F5;
   text-shadow:
-    0 0 10px #eee,
+    0 0 4px #eee,
     0 0 20px #aaa,
     0 0 40px #aaa,
     0 0 80px #aaa,
@@ -90,37 +183,86 @@ section {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
 .counter {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: bold;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-top: 0;
 }
 
 iframe {
   border: 0;
 }
 
+.map {
+  width: 500px;
+  max-width: 100%;
+  height: 300px;
+}
+
 .news-frame {
   width: 500px;
+  max-width: 100%;
+  height: 200px;
+  background-color: #fff;
 }
 
-.schedule-list ol {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.schedule-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 16px;
 }
 
-time {
-  /* font-weight: bold; */
+.schedule-section {
+  grid-column: 1 / 3;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #F99417;
 }
 
-.description {
-  margin-left: 10px;
+.time {
+  grid-column: 1;
+}
+
+.schedule-title {
+  grid-column: 2;
+}
+
+.schedule-description {
+  grid-column: 1 / 3;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+.moon {
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  bottom: 70px;
+  right: 25px;
+  z-index: -100;
+  transform: rotate(5deg);
+}
+
+img {
+  max-width: 300px;
 }
 
 footer {

@@ -5,137 +5,134 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>キャンフェス2025</title>
+  <meta name="description" content="N高グループ静岡キャンパス キャンフェス2025の公式サイトです。">
 
   <link rel="stylesheet" href="style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Yuji+Mai&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Yuji+Syuku&display=swap" rel="stylesheet">
 
   <script src="script.js" defer></script>
 </head>
 
 <body>
   <header>
-    <nav>
+    <nav class="menu-nav">
       <ul class="menu">
         <li><a href="#information">概要</a></li>
         <li><a href="#news">ニュース</a></li>
         <li><a href="#schedule">スケジュール</a></li>
-        <li><a href="#foods">飲食物の内容</a></li>
-        <li><a href="#goods">販売物の内容</a></li>
+        <li><a href="#foods">飲食物</a></li>
+        <li><a href="#goods">販売物</a></li>
         <li><a href="#mentor-ta">メンター・TA紹介</a></li>
       </ul>
+
+      <input type="checkbox" name="expand-menu">
     </nav>
   </header>
 
   <main>
     <div class="title">
-      <h1>静岡キャンフェス2025</h1>
+      <h1><span>静岡キャンフェス</span><span>2025</span></h1>
       <div id="counter" class="counter"></div>
     </div>
 
-    <section>
-      <h2 id="information">概要</h2>
+    <section id="information">
+      <h2>概要</h2>
 
       <p>日時: 2025年9月20日</p>
       <p>場所: N高グループ静岡キャンパス 〒420-0851 静岡県静岡市葵区黒金町3 シャンソンビル 1階</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.425020893776!2d138.38212470480448!3d34.97101730000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a496d853134a3%3A0x972ebd066450b05f!2zTumrmOetieWtpuagoSDpnZnlsqHjgq3jg6Pjg7Pjg5Hjgrk!5e0!3m2!1sja!2sjp!4v1751248202614!5m2!1sja!2sjp" width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe class="map" title="google map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.425020893776!2d138.38212470480448!3d34.97101730000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601a496d853134a3%3A0x972ebd066450b05f!2zTumrmOetieWtpuagoSDpnZnlsqHjgq3jg6Pjg7Pjg5Hjgrk!5e0!3m2!1sja!2sjp!4v1751248202614!5m2!1sja!2sjp" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
-    <section>
-      <h2 id="news">ニュース</h2>
+    <section id="news">
+      <h2>ニュース</h2>
 
-      <iframe class="news-frame" src="https://docs.google.com/document/d/e/2PACX-1vSDPROq28YCI4RE9EGwJof0HzGpMZfOLhzkYgo6eTM_FvmQPSsKQwhcxLw7eL0r7L5ZqqCJDXp85WRR/pub?embedded=true"></iframe>
+      <iframe class="news-frame" title="news" src="https://docs.google.com/document/d/e/2PACX-1vSDPROq28YCI4RE9EGwJof0HzGpMZfOLhzkYgo6eTM_FvmQPSsKQwhcxLw7eL0r7L5ZqqCJDXp85WRR/pub?embedded=true"></iframe>
     </section>
 
-    <section>
-      <h2 id="schedule">スケジュール</h2>
+    <section id="schedule">
+      <h2>スケジュール</h2>
 
       <div class="schedule-list">
-        <ol>
-          <li>
-            <div class="time-item">10:30 - 11:00 開場</div>
-          </li>
-        </ol>
+        <div class="time">10:30 - 11:00</div>
+        <div class="schedule-title">開場</div>
 
-        <h3>第一部</h3>
+        <div class="schedule-section">第一部</div>
 
-        <ol>
-          <li>
-            <div class="time-item"><time>11:00</time> - <time>11:05</time> 開会式</div>
-          </li>
-          <li>
-            <div class="time-item"><time>11:05</time> - <time>11:25</time> NSRロゴクイズ</div>
-            <div class="description"><small>N・S・R高等学校にちなんで、「N」「S」「R」が入っているロゴに関してクイズを出します。</small></div>
-          </li>
-          <li>
-            <div class="time-item"><time>11:30</time> - <time>11:50</time> イントロドン</div>
-          </li>
-          <li>
-            <div class="time-item"><time>11:55</time> - <time>12:05</time> あるある動画</div>
-            <div class="description"><small>超面白いあるある動画を視聴しよう！</small></div>
-          </li>
-          <li>
-            <div class="time-item"><time>12:10</time> - <time>12:30</time> 利き飲み物選手権</div>
-          </li>
-        </ol>
+        <div class="time">11:00 - 11:05</div>
+        <div class="schedule-title">開会式</div>
 
-        <h3>第二部</h3>
+        <div class="time">11:05 - 11:25</div>
+        <div class="schedule-title">NSRロゴクイズ</div>
+        <div class="schedule-description">N・S・R高等学校にちなんで、「N」「S」「R」が入っているロゴに関してクイズを出します。</div>
 
-        <ol>
-          <li>
-            <div class="time-item"><time>13:10</time> - <time>13:25</time> ゲーム大会決勝</div>
-          </li>
-          <li>
-            <div class="time-item"><time>13:30</time> - <time>13:50</time> イントロドン</div>
-          </li>
-          <li>
-            <div class="time-item"><time>13:55</time> - <time>14:10</time> なぞなぞ</div>
-          </li>
-          <li>
-            <div class="time-item"><time>14:15</time> - <time>14:30</time> ロゴクイズ</div>
-          </li>
-        </ol>
+        <div class="time">11:30 - 11:50</div>
+        <div class="schedule-title">イントロドン</div>
 
-        <h3>第三部</h3>
+        <div class="time">11:55 - 12:05</div>
+        <div class="schedule-title">あるある動画</div>
+        <div class="schedule-description">超面白いあるある動画を視聴しよう！</div>
 
-        <ol>
-          <li>
-            <div class="time-item"><time>14:40</time> - <time>14:55</time> 利き飲み物選手権</div>
-          </li>
-          <li>
-            <div class="time-item"><time>15:00</time> - <time>15:10</time> Vlog放送</div>
-          </li>
-          <li>
-            <div class="time-item"><time>15:15</time> - <time>15:35</time> なぞなぞ</div>
-          </li>
-          <li>
-            <div class="time-item"><time>15:50</time> - <time>16:00</time> 閉会式</div>
-          </li>
-        </ol>
+        <div class="time">12:10 - 12:30</div>
+        <div class="schedule-title">利き飲み物選手権</div>
 
-        <ol>
-          <li>
-            <div class="time-item"><time>16:00</time> 閉場</div>
-          </li>
-        </ol>
+        <div class="schedule-section">第二部</div>
+
+        <div class="time">13:10 - 13:25</div>
+        <div class="schedule-title">ゲーム大会決勝</div>
+
+        <div class="time">13:30 - 13:50</div>
+        <div class="schedule-title">イントロドン</div>
+
+        <div class="time">13:55 - 14:10</div>
+        <div class="schedule-title">なぞなぞ</div>
+
+        <div class="time">14:15 - 14:30</div>
+        <div class="schedule-title">ロゴクイズ</div>
+
+        <div class="schedule-section">第三部</div>
+
+        <div class="time">14:40 - 14:55</div>
+        <div class="schedule-title">利き飲み物選手権</div>
+
+        <div class="time">15:00 - 15:10</div>
+        <div class="schedule-title">Vlog放送</div>
+
+        <div class="time">15:15 - 15:35</div>
+        <div class="schedule-title">なぞなぞ</div>
+
+        <div class="time">15:50 - 16:00</div>
+        <div class="schedule-title">閉会式</div>
+
+        <div class="time">16:00</div>
+        <div class="schedule-title">閉場</div>
       </div>
     </section>
 
-    <section>
-      <h2 id="foods">飲食物の内容</h2>
+    <section id="foods">
+      <h2>飲食物</h2>
 
       <ul>
-        <li>フランクフルト</li>
-        <li>ポテト</li>
-        <li>ワッフル</li>
+        <li>
+          フランクフルト
+          <img class="image" src="assets/frankfurt.png" alt="フランクフルト">
+        </li>
+        <li>
+          ポテト
+          <img class="image" src="assets/potato.jpg" alt="ポテト">
+        </li>
+        <li>
+          ワッフル
+          <img class="image" src="assets/waffle.png" alt="ワッフル">
+        </li>
         <li>各種飲み物</li>
       </ul>
     </section>
 
-    <section>
-      <h2 id="goods">販売物の内容</h2>
+    <section id="goods">
+      <h2>販売物</h2>
 
       <ul>
         <li>メンターブロマイド</li>
@@ -145,8 +142,8 @@
       </ul>
     </section>
 
-    <section>
-      <h2 id="mentor-ta">メンター・TA紹介</h2>
+    <section id="mentor-ta">
+      <h2>メンター・TA紹介</h2>
 
       <div class="mentor-ta-list">
         <div class="mentor-ta">
@@ -211,10 +208,16 @@
         </div>
       </div>
     </section>
+
+    <div class="moon">
+      <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#c2a410" d="" id="moon-phase" />
+      </svg>
+    </div>
   </main>
 
   <footer>
-    <div><a href="https://docs.google.com/forms/d/1hxeP5mQonIIdpJGBm5ros6NectPeoZ4nALNQHigStas/edit">お問い合わせ</a></div>
+    <div><a href="https://docs.google.com/forms/d/e/1FAIpQLSea-lfwZj6qgOZ69seIJullQFtJLOOjObP2WO022cfb8oN-mA/viewform">お問い合わせ</a></div>
     <div>© 2025 N高グループ静岡キャンパス</div>
   </footer>
 </body>
