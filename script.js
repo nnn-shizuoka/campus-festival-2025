@@ -14,6 +14,7 @@ if (remainingDays > 0) {
   counter.textContent = '開催終了';
 }
 
+const moon = document.getElementById('moon');
 const moonPhase = document.getElementById('moon-phase');
 
 const createMoonPhasePath = (phase, r) => {
@@ -22,13 +23,27 @@ const createMoonPhasePath = (phase, r) => {
   return `${semicircle} ${semiEllipse}`;
 };
 
-const updateMoonPhase = () => {
-  // トップ画像の部分を除く
-  const minScrollY = document.documentElement.clientHeight;
-  const maxScrollY = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const phase = Math.min(Math.max(window.scrollY - minScrollY, 0), maxScrollY) / (maxScrollY - minScrollY);
+let isTicking = false;
 
-  moonPhase.setAttribute('d', `M 64 0 ${createMoonPhasePath(phase, 64)} Z`);
+const updateMoonPhase = () => {
+  if (isTicking) {
+    return;
+  }
+
+  isTicking = true;
+
+  window.requestAnimationFrame(() => {
+    // トップ画像の部分を除く
+    const minScrollY = document.documentElement.clientHeight;
+    const maxScrollY = document.documentElement.scrollHeight - document.documentElement.clientHeight - 100;
+    const scrollYRange = maxScrollY - minScrollY;
+    const phase = Math.min(Math.max(window.scrollY - minScrollY, 0), scrollYRange) / scrollYRange;
+
+    moon.style.setProperty('--phase', phase);
+    moonPhase.setAttribute('d', `M 64 4 ${createMoonPhasePath(phase, 60)} Z`);
+
+    isTicking = false;
+  });
 };
 
 updateMoonPhase();

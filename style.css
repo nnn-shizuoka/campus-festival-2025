@@ -8,7 +8,7 @@ html {
   font-size: 18px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
   html {
     font-size: 16px;
   }
@@ -78,7 +78,7 @@ header {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
   .menu {
     white-space: nowrap;
     overflow: hidden;
@@ -156,7 +156,7 @@ section {
   margin: 0 80px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
   section {
     margin: 0 20px;
   }
@@ -187,7 +187,7 @@ h1 {
   font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width < 768px) {
   h1 {
     font-size: 2.5rem;
     display: flex;
@@ -247,18 +247,84 @@ iframe {
 
 .schedule-description {
   grid-column: 1 / 3;
-  margin-left: 20px;
+  margin-left: 15px;
   font-size: 0.9rem;
+  color: #e3e3e3;
+  border-left: 1px solid #F5F5F5;
+  padding-left: 10px;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  padding: 0;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #36306288;
+  padding: 20px;
+  gap: 10px;
+}
+
+.card-image {
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.moon-container {
+  position: fixed;
+  bottom: 60px;
+  right: 40px;
+  z-index: -100;
 }
 
 .moon {
   width: 200px;
   height: 200px;
-  position: fixed;
-  bottom: 70px;
-  right: 25px;
-  z-index: -100;
-  transform: rotate(5deg);
+}
+
+.moon-phase {
+  fill: #8f7700;
+  rotate: calc(5deg + (0.5 - var(--phase)) * 30deg);
+  transform-origin: 64px 64px;
+  filter: brightness(calc(1.1 - abs(var(--phase) - 0.5) * 0.2));
+}
+
+.cloud {
+  fill: #33322e;
+  translate: calc(var(--move-speed) * clamp(0, var(--phase) - var(--phase-offset), var(--phase-range))) 0;
+  opacity: calc(var(--max-opacity) * (1 - cos(2 * clamp(0, var(--phase) - var(--phase-offset), var(--phase-range)) * pi / var(--phase-range))) / 2);
+}
+
+.cloud1 {
+  --move-speed: 55px;
+  --max-opacity: 0.9;
+  --phase-offset: 0;
+  --phase-range: 0.8;
+}
+
+.cloud2 {
+  --move-speed: -40px;
+  --max-opacity: 0.8;
+  --phase-offset: 0.3;
+  --phase-range: 0.6;
+}
+
+@media screen and (width < 768px) {
+  .moon-container {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .moon {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 img {

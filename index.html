@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Yuji+Syuku&display=swap" rel="stylesheet">
 
-  <script src="script.js" defer></script>
+  <script type="module" src="script.js"></script>
 </head>
 
 <body>
@@ -66,31 +66,36 @@
 
         <div class="time">11:05 - 11:25</div>
         <div class="schedule-title">NSRロゴクイズ</div>
-        <div class="schedule-description">N・S・R高等学校にちなんで、「N」「S」「R」が入っているロゴに関してクイズを出します。</div>
+        <div class="schedule-description">N/S/R高にちなんで、身近な企業やサービスのロゴを当てよう！</div>
 
         <div class="time">11:30 - 11:50</div>
         <div class="schedule-title">イントロドン</div>
+        <div class="schedule-description">流れてくる曲のイントロを聞いて曲名を答えよう！歌詞を見て曲名を答えるミニゲームもあります。</div>
 
         <div class="time">11:55 - 12:05</div>
-        <div class="schedule-title">あるある動画</div>
-        <div class="schedule-description">超面白いあるある動画を視聴しよう！</div>
+        <div class="schedule-title">あるある&TikTok</div>
+        <div class="schedule-description">生徒が編集した “キャンパスあるある動画” と “メンターが踊ったTikTok風動画” を放送します。</div>
 
         <div class="time">12:10 - 12:30</div>
         <div class="schedule-title">利き飲み物選手権</div>
+        <div class="schedule-description">いろんな飲み物を “目隠しで” 飲み比べ！味だけで当てられるのか？</div>
 
         <div class="schedule-section">第二部</div>
 
         <div class="time">13:10 - 13:25</div>
         <div class="schedule-title">ゲーム大会決勝</div>
+        <div class="schedule-description">第1部Cルームで行われていた、ゲーム大会の3位決定戦・決勝をステージで行います。</div>
 
         <div class="time">13:30 - 13:50</div>
         <div class="schedule-title">イントロドン</div>
 
         <div class="time">13:55 - 14:10</div>
         <div class="schedule-title">なぞなぞ</div>
+        <div class="schedule-description">大人も子どもも楽しめるなぞなぞに挑戦して、頭を動かそう。</div>
 
         <div class="time">14:15 - 14:30</div>
         <div class="schedule-title">ロゴクイズ</div>
+        <div class="schedule-description">第2部のロゴクイズは、NSRだけでなくすべてのアルファベットから出題されます。</div>
 
         <div class="schedule-section">第三部</div>
 
@@ -99,6 +104,7 @@
 
         <div class="time">15:00 - 15:10</div>
         <div class="schedule-title">Vlog放送</div>
+        <div class="schedule-description">生徒が編集した”普段の生徒の様子がわかるVlog動画”を放送します。</div>
 
         <div class="time">15:15 - 15:35</div>
         <div class="schedule-title">なぞなぞ</div>
@@ -114,28 +120,33 @@
     <section id="foods">
       <h2>飲食物</h2>
 
-      <ul>
-        <li>
+      <ul class="card-list">
+        <li class="card">
+          <img class="card-image" src="assets/frankfurt.jpg" alt="フランクフルト">
           フランクフルト
-          <img class="image" src="assets/frankfurt.png" alt="フランクフルト">
         </li>
-        <li>
+        <li class="card">
+          <img class="card-image" src="assets/potato.jpg" alt="ポテト">
           ポテト
-          <img class="image" src="assets/potato.jpg" alt="ポテト">
         </li>
-        <li>
+        <li class="card">
+          <img class="card-image" src="assets/waffle.jpg" alt="ワッフル">
           ワッフル
-          <img class="image" src="assets/waffle.png" alt="ワッフル">
         </li>
-        <li>各種飲み物</li>
+        <li class="card">
+          <img class="card-image" src="assets/orange-juice.jpg" alt="オレンジジュース">
+          各種飲み物
+        </li>
       </ul>
+
+      <p>※画像は実物と異なります</p>
     </section>
 
     <section id="goods">
       <h2>販売物</h2>
 
       <ul>
-        <li>メンターブロマイド</li>
+        <li>メンターステッカー&ブロマイドセット</li>
         <li>岡本TAのステッカー&チェキ風ブロマイドセット</li>
         <li>ポストカード</li>
         <li>編み物</li>
@@ -145,9 +156,9 @@
     <section id="mentor-ta">
       <h2>メンター・TA紹介</h2>
 
-      <div class="mentor-ta-list">
+      <div>
         <div class="mentor-ta">
-          <img class="image" src="https://placehold.jp/200x200.png" alt="根上佳三">
+          <img class="image" src="assets/negami.jpg" alt="根上佳三">
           <div class="name">根上佳三</div>
           <ul>
             <li>趣味:マニュアル車のドライブ</li>
@@ -158,7 +169,7 @@
 
         <div class="mentor-ta-list">
           <div class="mentor-ta">
-            <img class="image" src="https://placehold.jp/200x200.png" alt="福本奈穂">
+            <img class="image" src="assets/hukumoto.jpg" alt="福本奈穂">
             <div class="name">福本奈穂</div>
             <ul>
               <li>趣味 : アニメ鑑賞</li>
@@ -168,7 +179,7 @@
           </div>
 
           <div class="mentor-ta">
-            <img class="image" src="https://placehold.jp/200x200.png" alt="両角帆奈美">
+            <img class="image" src="assets/morozumi.jpg" alt="両角帆奈美">
             <div class="name">両角帆奈美</div>
             <ul>
               <li>趣味 : 一人カラオケ・漫画</li>
@@ -178,7 +189,7 @@
           </div>
 
           <div class="mentor-ta">
-            <img class="image" src="https://placehold.jp/200x200.png" alt="岡本航明">
+            <img class="image" src="assets/okamoto.jpg" alt="岡本航明">
             <div class="name">岡本航明</div>
             <ul>
               <li>趣味:ギター</li>
@@ -188,7 +199,7 @@
           </div>
 
           <div class="mentor-ta">
-            <img class="image" src="https://placehold.jp/200x200.png" alt="遠藤克哉">
+            <img class="image" src="assets/endo.jpg" alt="遠藤克哉">
             <div class="name">遠藤克哉</div>
             <ul>
               <li>趣味:ドライブ・昼寝</li>
@@ -197,7 +208,7 @@
           </div>
 
           <div class="mentor-ta">
-            <img class="image" src="https://placehold.jp/200x200.png" alt="梅井康希">
+            <img class="image" src="assets/umei.jpg" alt="梅井康希">
             <div class="name">梅井康希</div>
             <ul>
               <li>好きな事:ゲーム</li>
@@ -209,9 +220,11 @@
       </div>
     </section>
 
-    <div class="moon">
-      <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#c2a410" d="" id="moon-phase" />
+    <div class="moon-container">
+      <svg class="moon" id="moon" viewBox="0 0 128 128">
+        <path id="moon-phase" class="moon-phase" d />
+        <path class="cloud cloud1" d="M 64 118 C 74 118 77 110 71 103 C 72 95 65 88 56 91 C 54 71 20 69 16 91 C 4 92 0 118 19 118 Z" />
+        <path class="cloud cloud2" d="M 118 103 C 130 103 128 78 113 81 C 110 67 82 61 74 76 C 66 70 52 72 52 86 C 43 92 49 102 58 103 Z" />
       </svg>
     </div>
   </main>
