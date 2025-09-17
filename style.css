@@ -207,6 +207,7 @@ h2 {
 }
 
 iframe {
+  display: block;
   border: 0;
 }
 
@@ -214,6 +215,12 @@ iframe {
   width: 500px;
   max-width: 100%;
   height: 300px;
+}
+
+.campus-map {
+  width: 500px;
+  margin-top: 30px;
+  max-width: 100%;
 }
 
 .news-frame {
@@ -389,10 +396,6 @@ iframe {
     width: 180px;
     height: 180px;
   }
-}
-
-img {
-  max-width: 300px;
 }
 
 footer {
