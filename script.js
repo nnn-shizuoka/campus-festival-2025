@@ -71,8 +71,43 @@ const mochiCountErrorElement = document.getElementById('mochi-count-error');
 let globalMochiCount = 0;
 let localTemporaryMochiCount = 0;
 
+function isElementInViewport(element) {
+  const rect = element.getBoundingClientRect();
+
+  return rect.bottom >= 0
+    && rect.right >= 0
+    && rect.top <= document.documentElement.clientHeight
+    && rect.left <= document.documentElement.clientWidth;
+}
+
+const ANIMATION_DURATION = 400;
+let previousMochiCount = 0;
+let currentAnimationFrame;
+
 function updateMochiCount() {
-  mochiCountElement.textContent = globalMochiCount + localTemporaryMochiCount;
+  if (currentAnimationFrame) {
+    window.cancelAnimationFrame(currentAnimationFrame);
+  }
+
+  const totalMochiCount = globalMochiCount + localTemporaryMochiCount;
+  const mochiCountDifference = totalMochiCount - previousMochiCount;
+  previousMochiCount = globalMochiCount + localTemporaryMochiCount;
+  const startTimestamp = performance.now();
+
+  const nextFrame = (timestamp) => {
+    const relativeTimestamp = timestamp - startTimestamp;
+
+    if (relativeTimestamp >= ANIMATION_DURATION) {
+      mochiCountElement.textContent = totalMochiCount;
+      return;
+    }
+
+    const currentMochiCountDifference = Math.floor(mochiCountDifference * (1 - relativeTimestamp / ANIMATION_DURATION));
+    mochiCountElement.textContent = totalMochiCount - currentMochiCountDifference;
+    window.requestAnimationFrame(nextFrame);
+  };
+
+  window.requestAnimationFrame(nextFrame);
 };
 
 async function request(url, init) {
@@ -91,9 +126,20 @@ async function request(url, init) {
   }
 }
 
-let addTimeoutId = null;
+async function refreshGlobalCount() {
+  const response = await request(new URL('/current', mochiCountOrigin));
+  globalMochiCount = parseInt(await response.text());
+  updateMochiCount();
+}
 
-clickArea.addEventListener('click', () => {
+let addTimeoutId = null;
+let refreshTimeout = null;
+
+const REQUEST_INTERVAL = 5000;
+
+clickArea.addEventListener('click', (event) => {
+  event.preventDefault();
+
   localTemporaryMochiCount++;
   updateMochiCount();
 
@@ -105,7 +151,7 @@ clickArea.addEventListener('click', () => {
     kineElement.classList.remove('hit');
   }, { once: true });
 
-  // カウントをアップロード
+  // 5秒ごとカウントをアップロード
   if (!addTimeoutId) {
     addTimeoutId = setTimeout(() => {
       addTimeoutId = null;
@@ -119,12 +165,25 @@ clickArea.addEventListener('click', () => {
 
       globalMochiCount += localTemporaryMochiCount;
       localTemporaryMochiCount = 0;
-    }, 5000);
+    }, REQUEST_INTERVAL);
   }
+
+  // 最後のクリックから5秒間は更新しない
+  if (refreshTimeout) {
+    clearTimeout(refreshTimeout);
+  }
+
+  refreshTimeout = setTimeout(() => {
+    refreshTimeout = null;
+  }, REQUEST_INTERVAL);
 });
 
-// 初期化
-request(new URL('/current', mochiCountOrigin)).then(async (response) => {
-  globalMochiCount = parseInt(await response.text());
-  updateMochiCount();
-});
+// 5秒ごと更新
+setInterval(() => {
+  if (document.hasFocus() && !refreshTimeout && isElementInViewport(clickArea)) {
+    refreshGlobalCount();
+  }
+}, REQUEST_INTERVAL);
+
+// 初期更新
+refreshGlobalCount();
