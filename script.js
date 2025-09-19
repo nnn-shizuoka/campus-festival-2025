@@ -1,3 +1,7 @@
+//
+// 残り日時表示
+//
+
 const counter = document.getElementById('counter');
 
 // 日本標準時 (UTC+9)
@@ -13,6 +17,10 @@ if (remainingDays > 0) {
 } else {
   counter.textContent = '開催終了';
 }
+
+//
+// 月アニメーション
+//
 
 const moon = document.getElementById('moon');
 const moonPhase = document.getElementById('moon-phase');
@@ -48,3 +56,75 @@ const updateMoonPhase = () => {
 
 updateMoonPhase();
 window.addEventListener('scroll', updateMoonPhase);
+
+//
+// 餅つき
+//
+
+const mochiCountOrigin = 'https://mochi-counter.z3w7b21k.workers.dev';
+
+const clickArea = document.getElementById('mochi-click-area');
+const kineElement = document.getElementById('kine');
+const mochiCountElement = document.getElementById('mochi-count');
+const mochiCountErrorElement = document.getElementById('mochi-count-error');
+
+let globalMochiCount = 0;
+let localTemporaryMochiCount = 0;
+
+function updateMochiCount() {
+  mochiCountElement.textContent = globalMochiCount + localTemporaryMochiCount;
+};
+
+async function request(url, init) {
+  try {
+    const response = await fetch(url, init);
+
+    if (!response.ok) {
+      mochiCountErrorElement.textContent = `通信に失敗しました: ${response.status} ${response.statusText}`;
+    }
+
+    mochiCountErrorElement.replaceChildren();
+
+    return response;
+  } catch (error) {
+    mochiCountErrorElement.textContent = `通信に失敗しました: ${error}`;
+  }
+}
+
+let addTimeoutId = null;
+
+clickArea.addEventListener('click', () => {
+  localTemporaryMochiCount++;
+  updateMochiCount();
+
+  // 杵を振り下ろすアニメーション
+  kineElement.classList.add('hit');
+
+  // アニメーション終了後にクラスを外す
+  kineElement.addEventListener('animationend', () => {
+    kineElement.classList.remove('hit');
+  }, { once: true });
+
+  // カウントをアップロード
+  if (!addTimeoutId) {
+    addTimeoutId = setTimeout(() => {
+      addTimeoutId = null;
+      const addUrl = new URL('/add', mochiCountOrigin);
+      addUrl.searchParams.set('count', localTemporaryMochiCount);
+
+      request(addUrl, { method: 'POST' }).then(async (response) => {
+        globalMochiCount = parseInt(await response.text());
+        updateMochiCount();
+      });
+
+      globalMochiCount += localTemporaryMochiCount;
+      localTemporaryMochiCount = 0;
+    }, 5000);
+  }
+});
+
+// 初期化
+request(new URL('/current', mochiCountOrigin)).then(async (response) => {
+  globalMochiCount = parseInt(await response.text());
+  updateMochiCount();
+});

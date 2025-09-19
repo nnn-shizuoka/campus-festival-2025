@@ -23,7 +23,8 @@ body {
 }
 
 /* 和風フォント */
-h2 {
+h2,
+h3 {
   font-family: "Yuji Syuku", serif;
   font-weight: 400;
   font-style: normal;
@@ -223,6 +224,10 @@ h2 {
   margin-top: 0;
 }
 
+h3 {
+  font-size: 1.3em;
+}
+
 iframe {
   display: block;
   border: 0;
@@ -306,6 +311,72 @@ iframe {
   max-width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.mochi-click-area {
+  position: relative;
+  display: inline-block;
+  width: 320px;
+  height: 280px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  /* タップしたときの色を消す */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.usu {
+  width: 180px;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+}
+
+.kine {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  rotate: 0deg;
+  translate: 10px 0px;
+  transform-origin: top right;
+  pointer-events: none;
+}
+
+/* バウンドモーション */
+@keyframes kine-hit {
+
+  /* 待機 */
+  40% {
+    translate: -10px 25px;
+    rotate: 15deg;
+  }
+
+  /* 振り下ろし */
+  65% {
+    translate: -80px -15px;
+    rotate: -35deg;
+  }
+
+  70% {
+    translate: -90px -15px;
+    rotate: -40deg;
+  }
+}
+
+.hit {
+  animation: kine-hit 0.5s ease-out;
+}
+
+.mochi-count-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 90px;
+  translate: -50% 0;
+  font-size: 1.2em;
 }
 
 .mentor-ta-list {
