@@ -110,12 +110,19 @@ function updateMochiCount() {
   window.requestAnimationFrame(nextFrame);
 };
 
-async function request(url, init) {
+function createAddUrl(count) {
+  const addUrl = new URL('/add', mochiCountOrigin);
+  addUrl.searchParams.set('count', count);
+  return addUrl;
+}
+
+async function fetchMochi(url, init) {
   try {
     const response = await fetch(url, init);
 
     if (!response.ok) {
       mochiCountErrorElement.textContent = `通信に失敗しました: ${response.status} ${response.statusText}`;
+      throw new Error('Failed to fetch');
     }
 
     mochiCountErrorElement.replaceChildren();
@@ -123,11 +130,12 @@ async function request(url, init) {
     return response;
   } catch (error) {
     mochiCountErrorElement.textContent = `通信に失敗しました: ${error}`;
+    throw new Error('Failed to fetch');
   }
 }
 
 async function refreshGlobalCount() {
-  const response = await request(new URL('/current', mochiCountOrigin));
+  const response = await fetchMochi(new URL('/current', mochiCountOrigin));
   globalMochiCount = parseInt(await response.text());
   updateMochiCount();
 }
@@ -155,10 +163,9 @@ clickArea.addEventListener('click', (event) => {
   if (!addTimeoutId) {
     addTimeoutId = setTimeout(() => {
       addTimeoutId = null;
-      const addUrl = new URL('/add', mochiCountOrigin);
-      addUrl.searchParams.set('count', localTemporaryMochiCount);
+      const url = createAddUrl(localTemporaryMochiCount);
 
-      request(addUrl, { method: 'POST' }).then(async (response) => {
+      fetchMochi(url, { method: 'POST' }).then(async (response) => {
         globalMochiCount = parseInt(await response.text());
         updateMochiCount();
       });
@@ -184,6 +191,14 @@ setInterval(() => {
     refreshGlobalCount();
   }
 }, REQUEST_INTERVAL);
+
+// ページを閉じる前にアップロード
+window.addEventListener('beforeunload', () => {
+  if (localTemporaryMochiCount > 0) {
+    const url = createAddUrl(localTemporaryMochiCount);
+    fetch(url, { method: 'POST', keepalive: true });
+  }
+});
 
 // 初期更新
 refreshGlobalCount();
